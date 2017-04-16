@@ -1,0 +1,5 @@
+--dbms assigment
+--q2
+create table student(roll number(5) primary key, name varchar2(20),course varchar2(20), gender varchar(2));
+create table student_personel(roll number (5) primary key,dob date,father varchar2(20),address varchar(20),place varchar(20));
+create table student_enrollment(roll number(5) primary key,course varchar2(20),course_code number(5),sem number(4),total_marks number(5), percentage number(3));
