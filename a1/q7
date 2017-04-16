@@ -1,0 +1,15 @@
+create table employee_copy as select* from employee where 1=2;
+declare 
+    v_max number(5);
+    v_no number(5);
+    v_name varchar2(30);
+    v_count:=1;
+begin
+    loop
+        exit when v_count=6;
+        select max(total_salary) into v_max from employee;
+        select emp_name,emp_no into v_name,v_no from employee where total_salary=v_max;
+        dbms_output.put_line(v_count||'.'||v_no||'-'||v_name);
+        delete from employee_copy where emp_no=v_no;
+    end loop;
+end;
