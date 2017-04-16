@@ -1,0 +1,12 @@
+declare 
+    v_name varchar2(30);
+    v_roll number(5);
+    cursor c_p (var_num varchar2) is select name,rol from student,roll where ser=seri and rol>var_num;
+begin
+    open c_p(0);
+    loop
+        fetch c_p into v_name,v_roll;
+        exit when c_p%notfound;
+        dbms_output.put_line(v_name||' has the roll no '||v_roll);
+    end loop;
+end ;
