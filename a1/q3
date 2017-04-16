@@ -1,0 +1,11 @@
+--dbms assignment
+--q3
+declare 
+    v_name varchar2(40);
+    v_join_date date;
+    v_designamtion varchar2(30);
+    v_emp_no:=/*&enter_number*/ 10;
+begin
+    select emp_name,join_date,designation into v_name,v_join_date,v_designation from employee,works where employee.emp_no=works.emp_no and works.emp_no=v_emp_no;
+    dbms_output.put_line(v_name||' '||v_join_date||' '||v_designation);
+end;
