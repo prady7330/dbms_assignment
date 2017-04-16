@@ -1,0 +1,9 @@
+--dbms assignment
+--q4
+create table employee_salary(emp_no number(5) primary key,basic number(6), hra number(6),da number(6),total_deduction number(5),net_salary number(6),gross_salary number(6));
+declare
+    --variable needed for formula
+begin
+    --formula;
+    --dbms_outpur.put_line();
+end;
