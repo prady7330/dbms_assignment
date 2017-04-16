@@ -1,0 +1,13 @@
+declare
+    v_sal number(6);
+    v_count number:=1
+    cursor cr_sal (var_c number) is select total_salary from employee;
+begin
+    open cr_sal(5);
+    loop;
+        fetch cr_sal into v_sal;
+        exit when var_count>var_c;
+        dbms_output.put_line(v_sal);
+        v_count:=v_count+1;
+    end loop;
+end;
