@@ -1,0 +1,21 @@
+--dbms assignment
+--q6
+declare
+    v_1 number(3);
+    v_2 number(3);
+    v_3 number(3);
+    v_4 number(3);
+    v_total number(5);
+    v_per number(7,6);
+    v_roll=&roll_no;
+    v_middle number(7,6);
+begin
+    select s1,s2,s3,s4 into v_1,v_2,v_3,v_4 from student where roll_no=v_roll;
+    v_total:=s1+s2+s3+s4;
+    v_middle:=v_total/400;
+    v_percentage=v_middle*100;
+    update student set total=v_total where roll_no=v_roll;
+    update student set percentage=v_percentage where roll_no=v_roll;
+end;
+    
+    
