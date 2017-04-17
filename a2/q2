@@ -1,0 +1,14 @@
+create table update_audit(new_name varcahr(30),old_name varchar(30));
+create or replace trigger tr_up
+before update or delete or insert on employee_table
+for each row 
+enable
+begin
+    if updating then
+        insert into update_audit values (:new.emp_name,:old.emp_name);
+    elsif deleting then
+        insert into update_audit values (null,:old.emp_name);
+    elsif inserting then
+        insert into update_audit vlaues (:new.emp_name,null);
+    end if;
+end;
