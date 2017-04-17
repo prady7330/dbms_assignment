@@ -1,0 +1,10 @@
+declare 
+    v_num number(20):=0;
+begin
+    for idx in 1 .. 2000loop
+        if mod(idx,2) != 0 then
+            v_num:=v_num+idx;
+        end if;
+    end loop;
+    dbms_output.put_line(v_num);
+end;
