@@ -1,0 +1,9 @@
+create table product(product_id number(5), product_name varchar2(30),supplier_name varchar2(30),unit_price number(5));
+create table product_price_history(product_id number(5), product_name varchar2(30),supplier_name varchar2(30),unit_price number(5));
+create or replace trigger tr_price
+before update on product
+for each row 
+enable
+begin
+        insert into product_price_history values (:old.product_id,:old.product_name,:old.supplier_name,:old.unit_price);
+end;
