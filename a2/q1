@@ -1,0 +1,16 @@
+create table new_table (emp_no number(5), basic number(5), hra number(5),da number(5),total_ded number(5), net_salary number(5),gross_salary number(5));
+create or replace trigger tr_update
+before update on salary_table   
+for each row
+enable
+declare
+    cursor cr_pk is select* from salary_table;
+begin
+    if updating then
+    for idx in cr_pk
+    loop
+        insert into new_table values(idx.emp_no,idx.basic,idx.hra,idx.da,idx.total_ded,idx.net_salary,idx.gross_salary);
+    end loop;
+    end if;
+end;
+    
